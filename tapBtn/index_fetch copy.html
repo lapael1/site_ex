@@ -75,32 +75,67 @@
     <script>
       //  json 파일에서 데이터 불러오기
       fetch("data.json")
-        .then((response)=> {
+        .then((response) => {
           console.log(response);
           if (!response.ok) {
             throw new Error("요청실패");
           }
           return response.text();
         })
-        .then((data)=> {
+        .then((data) => {
           console.log(data);
-          // JSON.parse() 문자열을 객체로 변환한후 , menu 접근
+          // JSON.parse() 문자열을 객체로 변환한후 , menu 접근한다.
           const jsonData = JSON.parse(data);
           const menuItems = jsonData.menu;
           console.log(menuItems);
           const cardData = jsonData.cards;
           // 메뉴와 카드를 렌더링할 컨데이너를 생성
           const menuContainer = document.querySelector(".menu");
-          const cardContainer = document.querySelector(".card-container")
+          const cardContainer = document.querySelector(".card-container");
           // 메뉴 생성
-          // menuItems.forEach(function(menu , item){
-          //   const menuItem = document.createElement("div")
-          //   menuItem.classList.add("menu-item")
-          //   menuItem.textContent = menu
-          // })
+          // 메뉴 생성
+          menuItems.forEach(function (menu, index) {
+            const menuItem = document.createElement("div");
+            menuItem.classList.add("menu-item");
+            menuItem.textContent = menu;
+
+            // 메뉴 클릭 시 카드 전환
+            menuItem.addEventListener("click", function () {
+              document.querySelectorAll(".menu-item").forEach((item) => item.classList.remove("active"));
+              menuItem.classList.add("active");
+
+              document.querySelectorAll(".card").forEach((card) => card.classList.remove("active"));
+              document.querySelector(`.card[data-index="${index}"]`).classList.add("active");
+            });
+
+            menuContainer.appendChild(menuItem);
+          });
+
+          // 카드 생성
+          cardData.forEach(function (cards, index) {
+            const cardList = document.createElement("ul");
+            cardList.classList.add("card");
+            cardList.setAttribute("data-index", index);
+
+            cards.forEach(function (card) {
+              const cardItem = document.createElement("li");
+              cardItem.innerHTML = `
+                <img src="${card.img}" alt="이미지" />
+                <h2>${card.description}</h2>
+                <p>가격: ${card.price}</p>
+              `;
+              cardList.appendChild(cardItem);
+            });
+
+            cardContainer.appendChild(cardList);
+          });
+
+          // 첫 번째 메뉴와 카드 활성화
+          document.querySelector(".menu-item").classList.add("active");
+          document.querySelector(".card").classList.add("active");
         })
         .catch((error) => {
-          console.error("Error:" , error);
+          console.error("Error:", error);
         });
     </script>
   </body>

@@ -46,6 +46,18 @@
       "title": "아이템제목8",
       "dec": "아이템 설명8",
       "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, officiis eaque quidem cupiditate ipsam perspiciatis dolor officia voluptas quisquam doloribus "
+    },
+    {
+      "img": "gallery/gallery1.jpg",
+      "title": "아이템제목7",
+      "dec": "아이템 설명7",
+      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, officiis eaque quidem cupiditate ipsam perspiciatis dolor officia voluptas quisquam doloribus accusamus eos ad numquam ipsa odit recusandae "
+    },
+    {
+      "img": "gallery/gallery3.jpg",
+      "title": "아이템제목7",
+      "dec": "아이템 설명7",
+      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, officiis eaque quidem cupiditate ipsam perspiciatis dolor officia voluptas quisquam doloribus accusamus eos ad numquam ipsa odit recusandae "
     }
   ]
   

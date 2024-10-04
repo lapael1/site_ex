@@ -3,10 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mixitup</title>
+    <title>MisItUp</title>
+    <link rel="stylesheet" href="css/stlye.css" />
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="patrickkunka-mixitup-61dac05/demos/mixitup.min.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
+    <!-- <script src="patrickkunka-mixitup-61dac05/demos/mixitup.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js" integrity="sha512-nKZDK+ztK6Ug+2B6DZx+QtgeyAmo9YThZob8O3xgjqhw2IVQdAITFasl/jqbyDwclMkLXFOZRiytnUrXk/PM6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="patrickkunka-mixitup-61dac05/demos/mixitup.min.js"></script> -->
   </head>
   <body>
     <div class="container">
@@ -82,35 +84,39 @@
         <h6>green</h6>
       </div>
       <div class="mix green" data-order="12">
-        <h5>BOX12</h5>
-        <h6><img src="main_banner_figure1.png" alt="" /></h6>
+        <div class="card-wrap">
+            <h5>BOX12</h5>
+            <h6><img src="../images/Frame 1.png" alt="" /></h6>
+        </div>
+       
       </div>
     </div>
     <script>
-        $(document).ready(function(){
-      let mixer = mixitup(".mix-wrapper", {
-        // animate 설정
-        animation: {
-          duration: 250,
-        //   미세한 위치 이동
-          nudge: true,
-        //   방향 이나 순서관련 역방향으로 실행여부
-          reverseOut: false,
-          effects: "fade translateZ(-100px) rotateX(96deg) rotateY(-42deg)",
-        },
-    })
-    // select 했을 때 관련코드
-    $("#filter-select").change(function(){
-        let value = $(this).val()
-        // console.log(value);
-        mixer.filter(value)
-        
-    })
-    $("#sort-select").change(function(){
-        let value = $(this).val()
-        // sort() 정렬 관련된 메서드
-        mixer.sort(value)
-    })
+      $(document).ready(function () {
+        // 버튼 클릭시 적용
+        let mixer = mixitup(".mix-wrapper", {
+          // animate설정
+          animation: {
+            duration: 250,
+            //   미세한 위치 이동
+            nudge: true,
+            //   방향 이나 순서관련 역방향으로 실행여부
+            reverseOut: false,
+            effects: "fade translateZ(-100px) rotateX(96deg) rotateY(-42deg)",
+          },
+        });
+        // select했을때 관련코드
+        $("#filter-select").change(function(){
+            let value = $(this).val()
+            // console.log(value);
+            mixer.filter(value)
+            
+        })
+        $("#sort-select").change(function(){
+            let value = $(this).val()
+            // sort() 정렬관련된 메서드
+            mixer.sort(value)
+        })
       });
     </script>
   </body>
