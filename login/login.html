@@ -75,14 +75,16 @@
         if (userFind) {
           // 로그인이 성공하면 로컬스토리지에 사용자 정보를 저장합니다.
           localStorage.setItem("userFind", JSON.stringify(userFind));
-          alert(`${username}님 환영합니다. 로그인 성공하였습니다.`)
-          window.location.href = "index.html"
-          
-        }else{
-            alert("로그인 정보가 일치하지 않습니다. 다시 확인바랍니다.")
-            loginForm.reset()
+          alert(`${username}님 환영합니다. 로그인 성공하였습니다.`);
+          window.location.href = `index.html?username=${encodeURIComponent(username)}`;
+        } else {
+          alert("로그인 정보가 일치하지 않습니다. 다시 확인바랍니다.");
+          loginForm.reset();
         }
+     
+       
       });
+
     </script>
   </body>
 </html>
